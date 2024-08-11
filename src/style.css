@@ -20,17 +20,17 @@ body {
 }
 
 #carousel {
-    display: grid;
-    grid-template-columns: 150px 600px 150px;
-    grid-row: auto;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 150px 600px 150px;
+  grid-row: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-item img {
@@ -40,6 +40,6 @@ body {
 
 .carousel-item.previous img,
 .carousel-item.next img {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }

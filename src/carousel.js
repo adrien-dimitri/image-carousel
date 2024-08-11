@@ -6,11 +6,15 @@ export default function createCarousel(currentIndex = 0) {
   const previousDiv = document.querySelector(".previous");
   const nextDiv = document.querySelector(".next");
 
-  const { previousIndex, currentIndex: current, nextIndex } = calcIndex(currentIndex, getTotalPictures());
+  const {
+    previousIndex,
+    currentIndex: current,
+    nextIndex,
+  } = calcIndex(currentIndex, getTotalPictures());
 
-  currentDiv.innerHTML = '';
-  previousDiv.innerHTML = '';
-  nextDiv.innerHTML = '';
+  currentDiv.innerHTML = "";
+  previousDiv.innerHTML = "";
+  nextDiv.innerHTML = "";
 
   currentDiv.appendChild(createImg(current));
   previousDiv.appendChild(createImg(previousIndex));
