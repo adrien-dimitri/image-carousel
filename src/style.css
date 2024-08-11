@@ -19,7 +19,27 @@ body {
   color: antiquewhite;
 }
 
+#carousel {
+    display: grid;
+    grid-template-columns: 150px 600px 150px;
+    grid-row: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .carousel-item img {
   width: 500px;
   height: 500px;
+}
+
+.carousel-item.previous img,
+.carousel-item.next img {
+    width: 100px;
+    height: 100px;
 }
