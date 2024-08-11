@@ -1,4 +1,5 @@
 import "./style.css";
-import loadPicture from "./picture.js";
 
-loadPicture(0);
+import createCarousel from "./carousel";
+
+createCarousel(1);
