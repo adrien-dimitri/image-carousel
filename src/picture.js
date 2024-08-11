@@ -8,22 +8,20 @@ import fettuccine_alfredo from "./images/menu/fettuccine_alfredo.jpg";
 import arrayShuffle from "array-shuffle";
 
 export default function getPicture(index) {
-  const pictureArray = generatePictures();
-  const picture = pictureArray[index];
-
+  const picture = shuffledPictures[index];
   return picture;
 }
 
-export function createImg(Picture) {
+export function createImg(picture) {
   const img = document.createElement("img");
-  img.src = Picture.pictureBundle;
-  img.alt = Picture.recipeName;
+  img.src = picture.pictureBundle;
+  img.alt = picture.recipeName;
 
   return img;
 }
 
 export function getTotalPictures() {
-  return generatePictures().length;
+  return shuffledPictures.length;
 }
 
 class Picture {
@@ -74,14 +72,16 @@ class Picture {
   }
 }
 
-const generatePictures = () => {
-  const pictures = [
+function generatePictures() {
+  const pictures = arrayShuffle([
     new Picture("./images/menu/spaghetti_carbonara.jpg"),
     new Picture("./images/menu/penne_arrabbiata.jpg"),
     new Picture("./images/menu/lasagna.jpg"),
     new Picture("./images/menu/ravioli.jpg"),
     new Picture("./images/menu/pesto_genovese.jpg"),
     new Picture("./images/menu/fettuccine_alfredo.jpg"),
-  ];
-  return arrayShuffle(pictures);
-};
+  ]);
+  return pictures;
+}
+
+let shuffledPictures = generatePictures();
