@@ -1,3 +1,4 @@
-import './style.css'
+import "./style.css";
+import loadPicture from "./picture.js";
 
-console.log("Hello, Webpack Template!");
+loadPicture(0);
