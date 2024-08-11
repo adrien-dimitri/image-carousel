@@ -5,11 +5,17 @@ import ravioli from "./images/menu/ravioli.jpg";
 import pesto_genovese from "./images/menu/pesto_genovese.jpg";
 import fettuccine_alfredo from "./images/menu/fettuccine_alfredo.jpg";
 
-export default function createImg(index) {
+export default function getPicture(index) {
   const pictureArray = generatePictures();
+  const picture = pictureArray[index];
+
+  return picture;
+}
+
+export function createImg(Picture) {
   const img = document.createElement("img");
-  img.src = pictureArray[index].pictureBundle;
-  img.alt = pictureArray[index].recipeName;
+  img.src = Picture.pictureBundle;
+  img.alt = Picture.recipeName;
 
   return img;
 }
