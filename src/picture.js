@@ -5,16 +5,17 @@ import ravioli from "./images/menu/ravioli.jpg";
 import pesto_genovese from "./images/menu/pesto_genovese.jpg";
 import fettuccine_alfredo from "./images/menu/fettuccine_alfredo.jpg";
 
-export default function loadPicture(index) {
+export default function createImg(index) {
   const pictureArray = generatePictures();
   const img = document.createElement("img");
   img.src = pictureArray[index].pictureBundle;
   img.alt = pictureArray[index].recipeName;
 
-  const carouselItem = document.querySelector(".carousel-item");
-  carouselItem.appendChild(img);
+  return img;
+}
 
-  console.log(img);
+export function getTotalPictures() {
+  return generatePictures().length;
 }
 
 class Picture {
