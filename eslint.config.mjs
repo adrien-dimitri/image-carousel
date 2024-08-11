@@ -4,7 +4,14 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 
 export default [
-  {languageOptions: { globals: globals.node }},
+  {
+    languageOptions: { 
+      globals: { 
+        ...globals.node, 
+        ...globals.browser
+    },
+  },
+},
   pluginJs.configs.recommended,
   eslintConfigPrettier,
 ];
