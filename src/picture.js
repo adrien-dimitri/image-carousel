@@ -5,6 +5,8 @@ import ravioli from "./images/menu/ravioli.jpg";
 import pesto_genovese from "./images/menu/pesto_genovese.jpg";
 import fettuccine_alfredo from "./images/menu/fettuccine_alfredo.jpg";
 
+import arrayShuffle from "array-shuffle";
+
 export default function getPicture(index) {
   const pictureArray = generatePictures();
   const picture = pictureArray[index];
@@ -81,5 +83,5 @@ const generatePictures = () => {
     new Picture("./images/menu/pesto_genovese.jpg"),
     new Picture("./images/menu/fettuccine_alfredo.jpg"),
   ];
-  return pictures;
+  return arrayShuffle(pictures);
 };
