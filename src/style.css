@@ -19,6 +19,14 @@ body {
   color: antiquewhite;
 }
 
+#carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 #carousel {
   display: grid;
   grid-template-columns: 150px 600px 150px;
@@ -42,4 +50,11 @@ body {
 .carousel-item.next img {
   width: 100px;
   height: 100px;
+}
+
+.carousel-item.current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
