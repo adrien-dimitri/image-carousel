@@ -1,24 +1,32 @@
-import createImg from "./picture";
-import { getTotalPictures } from "./picture";
+import getPicture from "./picture";
+import { createImg, getTotalPictures } from "./picture";
 
-export default function createCarousel(currentIndex = 0) {
+export default function createCarousel(index = 0) {
   const currentDiv = document.querySelector(".current");
   const previousDiv = document.querySelector(".previous");
   const nextDiv = document.querySelector(".next");
 
-  const {
-    previousIndex,
-    currentIndex: current,
-    nextIndex,
-  } = calcIndex(currentIndex, getTotalPictures());
+  const { previousIndex, currentIndex, nextIndex } = calcIndex(
+    index,
+    getTotalPictures(),
+  );
 
   currentDiv.innerHTML = "";
   previousDiv.innerHTML = "";
   nextDiv.innerHTML = "";
 
-  currentDiv.appendChild(createImg(current));
-  previousDiv.appendChild(createImg(previousIndex));
-  nextDiv.appendChild(createImg(nextIndex));
+  const currPic = getPicture(currentIndex);
+  const prevPic = getPicture(previousIndex);
+  const nextPic = getPicture(nextIndex);
+
+  const recipeNameDiv = document.createElement("div");
+  recipeNameDiv.classList.add("recipe-name");
+  recipeNameDiv.innerHTML = currPic.recipeName;
+  currentDiv.appendChild(recipeNameDiv);
+
+  currentDiv.appendChild(createImg(currPic));
+  previousDiv.appendChild(createImg(prevPic));
+  nextDiv.appendChild(createImg(nextPic));
 }
 
 function calcIndex(currentIndex, total) {
