@@ -1,1 +1,3 @@
-console.log('Hello, Webpack Template!');
+import './style.css'
+
+console.log("Hello, Webpack Template!");
