@@ -5,7 +5,8 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    pictute: '/src/picture.js',
+    picture: '/src/picture.js',
+    navigation: './src/navigation.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
