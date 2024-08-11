@@ -1,5 +1,5 @@
 import "./style.css";
 
-import createCarousel from "./carousel";
+import startSlideshow from "./navigation";
 
-createCarousel(1);
+startSlideshow();
