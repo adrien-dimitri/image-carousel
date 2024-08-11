@@ -29,7 +29,7 @@ body {
 
 #carousel {
   display: grid;
-  grid-template-columns: 150px 600px 150px;
+  grid-template-columns: 150px 900px 150px;
   grid-row: auto;
   justify-content: center;
   align-items: center;
@@ -42,14 +42,14 @@ body {
 }
 
 .carousel-item img {
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
 }
 
 .carousel-item.previous img,
 .carousel-item.next img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .carousel-item.current {
@@ -57,4 +57,40 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.navigation button {
+  font-family: "Mekona";
+  font-size: 22px;
+  font-weight: bold;
+  padding: 15px 30px;
+  background-color: darksalmon;
+  color: antiquewhite;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  margin: 0 15px 0 15px;
+}
+
+.navigation button:hover {
+  background-color: #ff7f50;
+  transform: scale(1.05);
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 15px 0 15px;
 }
