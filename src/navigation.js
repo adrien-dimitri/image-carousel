@@ -11,8 +11,14 @@ function setupNavigation(slideshow) {
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
 
-  prevBtn.addEventListener("click", () => slideshow.previous());
-  nextBtn.addEventListener("click", () => slideshow.next());
+  prevBtn.addEventListener("click", () => {
+    slideshow.previous();
+    slideshow.resetTimeout();
+  });
+  nextBtn.addEventListener("click", () => {
+    slideshow.next();
+    slideshow.resetTimeout();
+  });
 }
 
 class Slideshow {
@@ -20,6 +26,7 @@ class Slideshow {
     this.currIndex = 0;
     this.totalPictures = getTotalPictures();
     this.updateCarousel(this.currIndex);
+    this.autoUpdate();
   }
 
   next() {
@@ -34,12 +41,10 @@ class Slideshow {
   }
 
   updateCarousel(index) {
-    // Ensure that the DOM elements exist before updating
     if (document.querySelector(".dots")) {
       createCarousel(index);
       this.updateDots(index);
     } else {
-      // Retry after a short delay if elements are not yet available
       setTimeout(() => this.updateCarousel(index), 50);
     }
   }
@@ -54,6 +59,15 @@ class Slideshow {
       targetDot.classList.add("selected");
     }
   }
+
+  autoUpdate() {
+    this.intervalId = setInterval(() => this.next(), 5000);
+  }
+
+  resetTimeout() {
+    clearInterval(this.intervalId);
+    this.autoUpdate();
+  }
 }
 
 function manageDots(slideshow, num) {
@@ -65,6 +79,7 @@ function manageDots(slideshow, num) {
     if (targetDot.classList.contains("dot")) {
       const index = dots.indexOf(targetDot);
       slideshow.updateCarousel(index);
+      slideshow.resetTimeout();
     }
   });
 }
