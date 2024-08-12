@@ -98,30 +98,38 @@ body {
 }
 
 .dots {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(15px, 1fr);
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  margin: 0 20px; /* Adjusted to match the button margins */
+  column-gap: 20px;
+  margin: 0 20px;
+  width: 250px;
 }
 
 .dot {
   width: 15px;
   height: 15px;
-  background-color: #bbb;
+  background-color: none;
+  border: 1px solid #bbb;
   border-radius: 50%;
   cursor: pointer;
   transition:
+    border 0.2s ease,
     background-color 0.3s ease,
     transform 0.2s ease;
+  place-self: center;
 }
 
 .dot:hover {
-  background-color: #717171;
+  border: 1px solid #bbb;
+  background-color: none;
   transform: scale(1.2);
 }
 
 .dot.selected {
+  border: none;
   background-color: #717171;
-  transform: scale(1.2);
+  transform: scale(0.9);
 }
