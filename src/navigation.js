@@ -45,7 +45,7 @@ class Slideshow {
       createCarousel(index);
       this.updateDots(index);
     } else {
-      setTimeout(() => this.updateCarousel(index), 50);
+      setTimeout(() => this.updateCarousel(index), 0);
     }
   }
 
@@ -57,6 +57,7 @@ class Slideshow {
     const targetDot = document.getElementById(index);
     if (targetDot) {
       targetDot.classList.add("selected");
+      this.currIndex = index;
     }
   }
 
